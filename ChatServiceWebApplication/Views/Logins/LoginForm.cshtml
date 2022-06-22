@@ -1,0 +1,36 @@
+﻿@model ApiClient.DTOs.LoginDTO
+@{
+    ViewData["Title"] = "Login";
+}
+
+<link rel="stylesheet" href="~/css/layout.css" />
+
+<div class="container">
+
+    <form method="post" class="form">
+        <h2 class="login-text">Login</h2>
+        <div style="background-color: grey; width: 100%; height: 1px; margin: 10px;"></div>
+
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group2">
+            <label asp-for="Username" class="form-label" required></label>
+            <input asp-for="Username" class="form-input" />
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <div class="form-group2">
+            <label asp-for="Password" class="form-label"></label>
+            <input asp-for="Password" class="form-input" type="password" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="util-container">
+            <div>
+                <input style="width: 16px;height:16px;" type="checkbox" name="remember" id="remember">
+                <label for="remember">Stay logged in?</label>
+            </div>
+            <a href="">Forgot your password?</a>
+        </div>
+        <span class="error-message-span">@ViewBag.ErrorMessage</span>
+        <input type="submit" value="Login" class="action-button" asp-action="Login" asp-controller="Chats"/>
+    </form>
+</div>

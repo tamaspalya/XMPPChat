@@ -1,0 +1,33 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item)
+            </td>
+            <td>
+                <a href="@Url.Action("OpenChat", "Chats" , new {jid = item + "@localhost"})" id="sendMessage" class="card-button" type="button"> Send Message</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
