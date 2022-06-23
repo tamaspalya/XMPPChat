@@ -37,7 +37,7 @@ namespace Tests.ApiClientTests
         {
             //arrange
             //act
-            IEnumerable<UserDTO> users = await _client.GetAllUsersAsync();
+            IEnumerable<string> users = await _client.GetAllUsersAsync();
             //assert
             Assert.IsNotNull(users);
         }
